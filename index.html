@@ -7,59 +7,57 @@
   
   <body>
 
+    <div id="game">
     <h1>Psychic Game</h1>
-     <p>Guess what letter I'm thinking of?</p>
+      <p>Guess what letter I'm thinking of?</p>
+    </div>
 
-     <p>Wins:<br>
-     <p>Losses:<br>
-     <p>Guesses Left:<br>
-     <p>Your Guesses so far:</p>
-       
     <script type="text/javascript">
-// Randomly chooses a choice from the options array. This is the Computer's guess.
-        var computerGuess = {
-          "alphabet":  [
-          "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"
-            ] 
-        }
-
-        console.log(computerGuess.alphabet[1])
-
 
 // Creates an array that lists out all of the options ofr user to choose (a-z)
-        var userGuess = prompt("Guess What Letter I'm Thinking of?");
-        alert(userGuess);
 
-        if(userGuess) {
-            alert("Correct");
-        } else {
-            alert("Incorrect Guess Again");
-        }
-           
+      var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
+// Creating variables to hold the number of wins, losses, and guesses. They start at 0.
+
+      var wins = 0;
+      var losses = 0;
+      var guessesLeft = 0;
+      var guessesSofar = 0;
+
+
+// This function is run whenever the user presses a key.
+      document.onkeyup = function(event) {
+          
+        var userGuess = event.key;
+        alert("User guess: " + userGuess);
 
 //Decide if userGuess same as computerGuess and if it is note that by adding 1 to the wins var below.  If not equals to then let userGuess again for a loop of up to 9 tries and add 1 to the guesses var below each time.  After 9 tries if they don't guess the letter add 1 to the losses var below.  
 
-// Creating variables to hold the number of wins, losses, and guesses. They start at 0.
-        var wins = 0;
-        var losses = 0;
-        var guesses = 0;
+        var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+        alert("Computer guess: " + computerGuess);
 
-// This function is run whenever the user presses a key.
-        document.onkeyup = function(event) {
+// This logic determines the outcome of the game (win/loss/tie), and increments the appropriate number
+
+        if ((userGuess === "a") && (computerGuess === "a")) {
+            wins++;
+          } else if ((userGuess === "a") && (computerGuess === "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "w", "x", "y", "z")) {
+            losses++;
+          }
+
+// Creating a variable to hold our new HTML. Our HTML now keeps track of the user and computer guesses, and wins/losses/ties.
+          var html =
+            "<p>You chose: " + userGuess + "</p>" +
+            "<p>The computer chose: " + computerGuess + "</p>" +
+            "<p>wins: " + wins + "</p>" +
+            "<p>losses: " + losses + "</p>";
+// Set the inner HTML contents of the #game div to our html string
+          document.querySelector("#game").innerHTML = html;
         }
-
-      // Determines which key was pressed.
-      //var userGuess = event.key;
-
-      if (true) {
-        
-      }
-
-
-        	
+      
     </script>
 
   </body>
 
 </html>
+
