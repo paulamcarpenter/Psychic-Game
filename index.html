@@ -47,10 +47,8 @@
 
 // This logic determines the outcome of the game (win/loss/tie), and increments the appropriate number
 
-        if ((userGuess === "a") && (computerGuess === "a")) {
-            wins++;
-          } else if ((userGuess === "a") && (computerGuess === "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "w", "x", "y", "z")) {
-            losses++;
+        if ((userGuess !== computerGuess)) {
+            losses++; wins++;
           }
 
 // Creating a variable to hold our new HTML. Our HTML now keeps track of the user and computer guesses, and wins/losses/ties.
