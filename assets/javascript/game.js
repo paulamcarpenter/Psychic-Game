@@ -9,13 +9,13 @@
 
 // This function is run whenever the user presses a key.
       document.onkeyup = function(event) {
-       
+
         var userGuess = event.key;
-//        document.write("User Guess " + userGuess);
+//	        document.write("User Guess " + userGuess);
 
 //Decide if userGuess same as computerGuess and if it is note that by adding 1 to the wins var below.  If not equals to then let userGuess again for a loop of up to 9 tries and add 1 to the guesses var below each time.  After 9 tries if they don't guess the letter add 1 to the losses var below.  
 
-        var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)]
+        var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 //        document.write("Computer guess: " + computerGuess);
 
 // This logic determines the outcome of the game (win/loss/tie), and increments the appr=<opriate number
@@ -29,7 +29,7 @@
         }
 
         if (guessesLeft == 0) {
-            alert("You have guessed 9 times, Game Over, start new game");
+            alert("You have guessed 9 times, Game Over, Start New Game");
             location.reload();
         }
 
@@ -45,7 +45,7 @@
 
         // Set the inner HTML contents of the #game div to our html string
         var myDivContents = document.getElementById("game").innerHTML = html;
-
+        
         }
 
       
