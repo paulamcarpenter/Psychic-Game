@@ -1,6 +1,51 @@
-alert("Guess what letter I'm thinking of?");
+      var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-var answer = a;
-var guess;
+// Creating variables to hold the number of wins, losses, and guesses. They start at 0.
 
-for (i=)
+      var wins = 0;
+      var losses = 0;
+      var guessesLeft = 9;
+      var guessesSofar = 0;
+
+// This function is run whenever the user presses a key.
+      document.onkeyup = function(event) {
+       
+        var userGuess = event.key;
+//        document.write("User Guess " + userGuess);
+
+//Decide if userGuess same as computerGuess and if it is note that by adding 1 to the wins var below.  If not equals to then let userGuess again for a loop of up to 9 tries and add 1 to the guesses var below each time.  After 9 tries if they don't guess the letter add 1 to the losses var below.  
+
+        var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)]
+//        document.write("Computer guess: " + computerGuess);
+
+// This logic determines the outcome of the game (win/loss/tie), and increments the appr=<opriate number
+
+        if ((userGuess !== computerGuess)) {
+            losses++; guessesSofar++; guessesLeft--;
+        } 
+
+        if ((userGuess == computerGuess)) {
+            wins++; guessesSofar++; guessesLeft--;
+        }
+
+        if (guessesLeft == 0) {
+            alert("You have guessed 9 times, Game Over, start new game");
+            location.reload();
+        }
+
+               
+// Creating a variable to hold our new HTML. Our HTML now keeps track of the user and computer guesses, and wins/losses/ties.
+        var html =
+          "<p>You chose: " + userGuess + "</p>" +
+          "<p>The computer chose: " + computerGuess +"</p>" +
+          "<p>Wins: " + wins + "</p>" +
+          "<p>Losses: " + losses + "</p>" + 
+          "<p>Your Guesses So far: " + userGuess + "</p>" +
+          "<p>Guesses Left: " + guessesLeft + "</p>"
+
+        // Set the inner HTML contents of the #game div to our html string
+        var myDivContents = document.getElementById("game").innerHTML = html;
+
+        }
+
+      
